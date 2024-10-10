@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             console.log("AuthProvider - User state changed:", user);
             setUser(user);
             setLoading(false);
-            // Temporaire , trés mauvaise pratique , changer le fonctionnement urgent !
+            // TODO , trés mauvaise pratique , changer le fonctionnement urgent !
             if (user) {
                 const token = await user.getIdToken();
                 const userEmail = user.email;
