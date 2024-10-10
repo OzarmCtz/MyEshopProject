@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             console.log("AuthProvider - User state changed:", user);
             setUser(user);
             setLoading(false);
-
+            // Temporaire , trés mauvaise pratique , changer le fonctionnement urgent !
             if (user) {
                 const token = await user.getIdToken();
                 const userEmail = user.email;
@@ -36,7 +36,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
                 Cookies.set('email', userEmail!);
             } else {
                 setToken(null);
-                setEmail(null); // Assurez-vous de réinitialiser l'email lorsque l'utilisateur est déconnecté
+                setEmail(null);  
                 Cookies.remove('token');
                 Cookies.remove('email');
             }
