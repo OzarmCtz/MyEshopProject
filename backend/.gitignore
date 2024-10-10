@@ -1,0 +1,4 @@
+*.log
+*.env
+appli/datasources/firebase/firebase-service-account-key.json
+.vscode
