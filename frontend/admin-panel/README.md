@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Here's the revised README that keeps your original content and adds a section on how to find the Firebase configuration values:
 
-## Getting Started
+```markdown
+# E-Shop Panel Admin Frontend
 
-First, run the development server:
+## Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Node.js** (version 14 or later)
+- **npm** (comes with Node.js)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Backend Setup
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Load the database using the SQL file:
+   ```bash
+   # Execute in your MySQL client
+   source backend/datasources/mysql/schema/appli.sql;
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Frontend Setup
 
-## Learn More
+1. Install dependencies:
+   ```bash
+   cd frontend
+   npm install
+   npm install react-hot-toast axios
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+2. Create a `.env` file in the frontend root with your Firebase configuration:
+   ```bash
+   NEXT_PUBLIC_FIREBASE_API_KEY=
+   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+   NEXT_PUBLIC_FIREBASE_PROJECT_ID=
+   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+   NEXT_PUBLIC_FIREBASE_APP_ID=
+   NEXT_PUBLIC_PV_PATH_API=http://localhost:8081/api/v1/private
+   NEXT_PUBLIC_PB_PATH_API=http://localhost:8081/api/v1/public
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Start the frontend server:
+   ```bash
+   npm run dev
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## How to Obtain Firebase Configuration Values
 
-## Deploy on Vercel
+To populate your `.env` file with the necessary Firebase configuration values, follow these steps:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Access Firebase Console**:
+   - Go to [Firebase Console](https://console.firebase.google.com/) and log in with your Google account.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. **Select Your Project**:
+   - Click on the Firebase project you created (in your case, it should be **e-shop-5caec**).
+
+3. **Retrieve Firebase Configuration**:
+   - In the left menu, click on the **Project Settings** gear icon.
+   - Navigate to the **General** tab and scroll down to the **Your apps** section.
+   - If you haven't already added a web app, click on **Add app** and select **Web**. Follow the prompts to register your web app.
+   - After adding the app, you will see the Firebase SDK snippet containing the configuration details.
+
+4. **Copy the Configuration Values**:
+   - Copy the following values from the snippet provided in the Firebase Console:
+     - `apiKey`
+     - `authDomain`
+     - `projectId`
+     - `storageBucket`
+     - `messagingSenderId`
+     - `appId`
+
+5. **Update Your `.env` File**:
+   - Replace the placeholders in your `.env` file with the actual values you copied.
