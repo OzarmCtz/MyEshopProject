@@ -1,6 +1,3 @@
-Here's the revised README that keeps your original content and adds a section on how to find the Firebase configuration values:
-
-```markdown
 # E-Shop Panel Admin Frontend
 
 ## Prerequisites
