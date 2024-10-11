@@ -1,4 +1,4 @@
-![Screenshot 2024-10-11 150000](https://github.com/user-attachments/assets/b9f2b134-a10a-4b68-9c65-27e91920f567)
+![Screenshot 2024-10-11 152624](https://github.com/user-attachments/assets/3a986ba8-feaa-44e8-acd4-7f6b81d360b2)
 
 # MyEshopProject
 

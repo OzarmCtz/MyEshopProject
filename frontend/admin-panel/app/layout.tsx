@@ -7,6 +7,7 @@ import { ToastProvider } from "@/providers/toast-provider";
 import ClientWrapper from '@/components/ClientWrapper';
 import { AuthProvider } from '@/context/AuthContext';
 import AuthWrapper from '@/components/AuthWrapper'; // Importez le nouveau composant AuthWrapper
+import { ThemeProvider } from "@/providers/theme-provider";
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <ToastProvider />
         <ModalProvider />
         <AuthProvider>
@@ -32,6 +34,7 @@ export default function RootLayout({
             </AuthWrapper>
           </ClientWrapper>
         </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
