@@ -1,5 +1,3 @@
-![Screenshot 2024-10-11 152624](https://github.com/user-attachments/assets/3a986ba8-feaa-44e8-acd4-7f6b81d360b2)
-
 # MyEshopProject
 
 MyEshopProject is a personal project created for practice and enjoyment. It is currently under development and not open for contributions. As a work in progress, it is not suitable for public use at this time.
