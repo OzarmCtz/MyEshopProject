@@ -48,7 +48,7 @@ export default function SignUpPage() {
             const result = await createUserWithEmailAndPassword(auth, values.emailAddress, values.password);
             console.log("SignUpPage - Sign up result:", result);
             if (result.user) {
-                const response = await fetch(`${process.env.NEXT_PUBLIC_PATH_API}/sign/up`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_PB_PATH_API}/sign/up`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ export default function SignUpPage() {
                     body: JSON.stringify({
                         u_email: result.user.email,
                         u_uid: result.user.uid,
-                        u_is_disabled: false // Assurez-vous que c'est un boolean
+                        u_is_disabled: false
                     }),
                 });
 

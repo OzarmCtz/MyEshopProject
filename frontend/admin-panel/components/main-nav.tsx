@@ -18,11 +18,6 @@ export function MainNav({
             active: pathname === `/`,
         },
         {
-            href: `/billboards`,
-            label: 'Billboards',
-            active: pathname === `/billboards`,
-        },
-        {
             href: `/categories`,
             label: 'Categories',
             active: pathname === `/categories`,
@@ -37,11 +32,6 @@ export function MainNav({
             label: 'Users',
             active: pathname === `/users`,
         },
-        {
-            href: `/settings`,
-            label: 'Settings',
-            active: pathname === `/settings`,
-        }
     ];
     return (
         <nav className={cn("flex items-center space-x-4 lg:space-x-6", className)}>

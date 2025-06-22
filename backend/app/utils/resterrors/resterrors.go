@@ -46,6 +46,14 @@ func NewNotFoundError(message string, err error) RestError {
 	}
 }
 
+func NewForbiddenError(message string, err error) RestError {
+	return restError{
+		ErrMessage: message,
+		ErrStatus:  http.StatusUnauthorized,
+		ErrError:   err.Error(),
+	}
+}
+
 func NewBadRequestError(message string, err error) RestError {
 	return restError{
 		ErrMessage: message,

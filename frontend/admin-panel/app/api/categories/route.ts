@@ -5,7 +5,6 @@ import { cookies } from 'next/headers';
 export async function POST(req: Request) {
     const cookieStore = cookies();
     const token = cookieStore.get('token')?.value;
-
     try {
         const body = await req.json();
         const { ic_name: name, ic_description: description, ic_picture_url: pictureUrl } = body;

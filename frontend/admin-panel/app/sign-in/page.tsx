@@ -100,14 +100,14 @@ export default function SignInPage() {
                     <Button type="submit" className="w-full" disabled={isLoading}>
                         {isLoading ? 'Loading...' : 'Submit'}
                     </Button>
-                    <div className="mt-4 text-center">
+                    {/* <div className="mt-4 text-center">
                         <p>
                             Don't have an account?{" "}
                             <Link href="/sign-up" className="text-blue-500">
                                 Sign up
                             </Link>
                         </p>
-                    </div>
+                    </div> */}
                 </form>
             </Form>
         </main>

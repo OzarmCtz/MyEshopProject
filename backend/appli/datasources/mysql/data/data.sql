@@ -163,18 +163,30 @@ INSERT INTO `groups_users` (`gu_id`, `gu_name`, `gu_description`) VALUES
 
 -- Dumping data for table shop-mysql.items: ~1 rows (approximately)
 INSERT INTO `items` (`i_id`, `i_title`, `i_description`, `i_price`, `i_quantity`, `i_picture_url`, `i_file_path`, `i_is_disabled`, `i_release_date`) VALUES
-	(36, 'Form Contact Template', 'An simple form contact using HTML and css', 20.00, 100, 'https://picture.com/kdlM', 'https://privnote.com/jdjqQ', 1, '2024-06-04 19:44:47');
+  (1, 'ZenTask - Task Manager App', 'Application de gestion de tâches simple et intuitive pour Mac/PC', 29.99, 1000, 'https://example.com/images/zentask.png', 'https://downloads.example.com/zentask.zip', 0, '2024-06-01 10:00:00'),
+  (2, 'CyberShield Pro VPN', 'Solution de VPN hautement sécurisée pour une navigation anonyme', 49.99, 1000, 'https://example.com/images/cybershield.png', 'https://downloads.example.com/cybershield.exe', 0, '2024-05-15 14:30:00'),
+  (3, 'The Digital Nomad Guide', 'Ebook pour vivre et travailler à distance efficacement', 14.99, 1000, 'https://example.com/images/nomadguide.png', 'https://downloads.example.com/nomadguide.pdf', 0, '2024-03-10 09:00:00'),
+  (4, 'Startup Marketing Playbook', 'Stratégies de croissance pour startups en démarrage', 19.99, 1000, 'https://example.com/images/marketingbook.png', 'https://downloads.example.com/startupplaybook.epub', 0, '2024-02-20 16:45:00'),
+  (5, 'Clean UI Kit - Figma', 'UI kit moderne pour applications SaaS', 9.99, 1000, 'https://example.com/images/uikit.png', 'https://downloads.example.com/cleanuikit.fig', 0, '2024-01-05 08:00:00'),
+  (6, 'iPhone Mockups PSD Pack', 'Mockups professionnels pour iPhone 14 Pro', 5.99, 1000, 'https://example.com/images/mockups.png', 'https://downloads.example.com/iphonemockups.zip', 0, '2024-04-10 11:20:00');
+
 
 -- Dumping data for table shop-mysql.items_category: ~2 rows (approximately)
 INSERT INTO `items_category` (`ic_id`, `ic_name`, `ic_description`, `ic_picture_url`) VALUES
-	(82, 'Software', 'Software Category', 'http://random.pucture.com'),
-	(84, 'Online Course', 'Online Course Category', 'https://picture.com/kdlM');
+  (1, 'Software', 'Applications logicielles pour Windows, Mac et Linux', 'https://example.com/images/software.png'),
+  (2, 'Ebooks', 'Livres numériques en PDF, EPUB ou Kindle', 'https://example.com/images/ebooks.png'),
+  (3, 'Design Assets', 'Templates, icônes, UI kits, mockups...', 'https://example.com/images/design_assets.png');
+
 
 -- Dumping data for table shop-mysql.items_category_link: ~3 rows (approximately)
 INSERT INTO `items_category_link` (`icl_id`, `icl_items_sub_category_id`, `icl_items_category_id`) VALUES
-	(33, 50, 82),
-	(34, 51, 82),
-	(37, 54, 84);
+  (1, 1, 1), -- Productivity Tools → Software
+  (2, 2, 1), -- Antivirus → Software
+  (3, 3, 2), -- Fiction → Ebooks
+  (4, 4, 2), -- Business → Ebooks
+  (5, 5, 3), -- UI Kits → Design Assets
+  (6, 6, 3); -- Mockups → Design Assets
+
 
 -- Dumping data for table shop-mysql.items_purshased: ~0 rows (approximately)
 
@@ -182,13 +194,23 @@ INSERT INTO `items_category_link` (`icl_id`, `icl_items_sub_category_id`, `icl_i
 
 -- Dumping data for table shop-mysql.items_sub_category: ~3 rows (approximately)
 INSERT INTO `items_sub_category` (`isc_id`, `isc_name`, `isc_description`, `isc_picture_url`) VALUES
-	(50, 'Productivity Applications', 'Software designed to help users perform tasks efficiently, such as office suites, project management tools, and note-taking apps.', 'http://random.pucture.com'),
-	(51, 'Security Software', 'Applications that protect computers and networks from viruses, malware, and unauthorized access, including antivirus programs, anti-malware tools, and VPNs.', 'http://random.pucture.com'),
-	(54, 'HTML Form', 'HTML Form sub category', 'https://picture.com/kdlM');
+  (1, 'Productivity Tools', 'Logiciels de gestion de tâches, notes, calendrier, etc.', 'https://example.com/images/productivity.png'),
+  (2, 'Antivirus & Sécurité', 'Logiciels de cybersécurité et VPNs', 'https://example.com/images/security.png'),
+  (3, 'Fiction', 'Romans, nouvelles et récits narratifs au format numérique', 'https://example.com/images/fiction.png'),
+  (4, 'Business & Marketing', 'Guides pratiques pour entrepreneurs et marketeurs', 'https://example.com/images/marketing.png'),
+  (5, 'UI Kits', 'Bibliothèques de composants UI pour designers', 'https://example.com/images/uikits.png'),
+  (6, 'Mockups', 'Templates PSD pour prévisualisation de produits', 'https://example.com/images/mockups.png');
+
 
 -- Dumping data for table shop-mysql.items_sub_category_link: ~1 rows (approximately)
 INSERT INTO `items_sub_category_link` (`iscl_id`, `iscl_items_id`, `iscl_sub_category_id`) VALUES
-	(34, 36, 50);
+  (1, 1, 1), -- ZenTask → Productivity Tools
+  (2, 2, 2), -- CyberShield → Antivirus
+  (3, 3, 3), -- Nomad Guide → Fiction
+  (4, 4, 4), -- Marketing Playbook → Business
+  (5, 5, 5), -- UI Kit → UI Kits
+  (6, 6, 6); -- iPhone Mockups → Mockups
+
 
 -- Dumping data for table shop-mysql.transactions: ~0 rows (approximately)
 

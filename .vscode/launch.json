@@ -1,0 +1,35 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Server (Listen for requests)",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceFolder}/backend/main.go",
+      "cwd": "${workspaceFolder}/backend",
+      "envFile": "${workspaceFolder}/backend/.env",
+      "env": {
+        "GO_ENV": "development",
+        "GIN_MODE": "debug"
+      },
+      "console": "integratedTerminal",
+      "stopOnEntry": false,
+      "showLog": true,
+      "trace": "verbose",
+      "logOutput": "dap",
+      "buildFlags": "",
+      "args": []
+    },
+    {
+      "name": "Test package (debug)",
+      "type": "go",
+      "request": "launch",
+      "mode": "test",
+      "program": "${workspaceFolder}/backend/appli/apis/domain/users/wishlist",
+      "cwd": "${workspaceFolder}/backend",
+      "envFile": "${workspaceFolder}/backend/.env",
+      "console": "integratedTerminal"
+    }
+  ]
+}
