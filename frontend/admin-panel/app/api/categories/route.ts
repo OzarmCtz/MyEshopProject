@@ -19,7 +19,7 @@ export async function POST(req: Request) {
         }
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/category?token=${token}`, {
+            const response = await fetch(`${process.env.PV_PATH_API}/items/category?token=${token}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export async function DELETE(req: Request) {
             return new NextResponse(JSON.stringify({ error: "You are not authenticated" }), { status: 401 });
         }
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/category/${categoryId}?token=${token}`, {
+        const response = await fetch(`${process.env.PV_PATH_API}/items/category/${categoryId}?token=${token}`, {
             method: 'DELETE',
         });
 
@@ -99,7 +99,7 @@ export async function PUT(req: Request) {
             return new NextResponse(JSON.stringify({ error: "You are not authenticated" }), { status: 401 });
         }
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/category/${categoryId}?token=${token}`, {
+        const response = await fetch(`${process.env.PV_PATH_API}/items/category/${categoryId}?token=${token}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

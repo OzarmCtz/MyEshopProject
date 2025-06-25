@@ -19,7 +19,7 @@ const SubCategoryPage = async ({ params }: { params: { subcategoryId: string } }
 
     if (params.subcategoryId && params.subcategoryId !== 'new') {
         try {
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_PB_PATH_API}/items/sub/category/${params.subcategoryId}`);
+            const response = await axios.get(`${process.env.PB_PATH_API}/items/sub/category/${params.subcategoryId}`);
 
             if (response.status === 200) {
                 subCategoryData = response.data;
@@ -29,7 +29,7 @@ const SubCategoryPage = async ({ params }: { params: { subcategoryId: string } }
 
         try {
 
-            const subCategory = await axios.get(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/category/link/${params.subcategoryId}?token=${token}`, {
+            const subCategory = await axios.get(`${process.env.PV_PATH_API}/items/category/link/${params.subcategoryId}?token=${token}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,7 +46,7 @@ const SubCategoryPage = async ({ params }: { params: { subcategoryId: string } }
     }
 
     try {
-        const category = await axios.get(`${process.env.NEXT_PUBLIC_PB_PATH_API}/items/category`);
+        const category = await axios.get(`${process.env.PB_PATH_API}/items/category`);
         if (category.status === 200) {
             categoryData = category.data;
         }

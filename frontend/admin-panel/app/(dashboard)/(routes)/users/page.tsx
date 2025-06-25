@@ -14,7 +14,7 @@ const UsersPage = async () => {
 
 
     try {
-        const users = await axios.get(`${process.env.NEXT_PUBLIC_PV_PATH_API}/users?token=${token}`);
+        const users = await axios.get(`${process.env.PV_PATH_API}/users?token=${token}`);
 
         formattedUsers = users.data.map((user: any) => ({
             id: user.u_id,

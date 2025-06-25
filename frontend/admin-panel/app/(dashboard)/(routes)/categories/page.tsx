@@ -17,7 +17,7 @@ const CategoriesPage = async () => {
     const token = cookieStore.get('token')?.value;
 
     try {
-        const categories = await axios.get(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/category?token=${token}`);
+        const categories = await axios.get(`${process.env.PV_PATH_API}/items/category?token=${token}`);
 
         formattedCategories = categories.data.map((item: any) => ({
             id: item.ic_id,
@@ -33,7 +33,7 @@ const CategoriesPage = async () => {
     }
 
     try {
-        const subCategories = await axios.get(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/sub/category?token=${token}`);
+        const subCategories = await axios.get(`${process.env.PV_PATH_API}/items/sub/category?token=${token}`);
 
         formattedSubCategories = subCategories.data.map((item: any) => ({
             id: item.isc_id,

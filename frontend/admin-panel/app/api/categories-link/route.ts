@@ -19,7 +19,7 @@ export async function POST(req: Request) {
         }
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/sub/category/link?token=${token}`, {
+            const response = await fetch(`${process.env.PV_PATH_API}/items/sub/category/link?token=${token}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -61,7 +61,7 @@ export async function PUT(req: Request) {
         }
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/sub/category/link?token=${token}`, {
+            const response = await fetch(`${process.env.PV_PATH_API}/items/sub/category/link?token=${token}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ export async function GET(req: Request) {
         }
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/category/link/${subcategoryId}?token=${token}`, {
+            const response = await fetch(`${process.env.PV_PATH_API}/items/category/link/${subcategoryId}?token=${token}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

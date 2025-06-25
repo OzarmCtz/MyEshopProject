@@ -8,7 +8,7 @@ const CategoryPage = async ({ params }: { params: { categoryId: number } }) => {
 
     if (params.categoryId) {
         try {
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_PB_PATH_API}/items/category/${params.categoryId}`);
+            const response = await axios.get(`${process.env.PB_PATH_API}/items/category/${params.categoryId}`);
             if (response.status === 200) {
                 categoryData = response.data;
             }

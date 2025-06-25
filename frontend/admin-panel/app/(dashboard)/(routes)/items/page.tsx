@@ -13,7 +13,7 @@ const ItemsPage = async () => {
 
 
     try {
-        const items = await axios.get(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items?token=${token}`);
+        const items = await axios.get(`${process.env.PV_PATH_API}/items?token=${token}`);
 
         formattedItems = items.data.map((item: any) => ({
             id: item.i_id,

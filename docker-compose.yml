@@ -22,9 +22,9 @@ services:
     env_file:
       - ./frontend/admin-panel/.env
     environment:
-      # Override pour Docker (communication inter-conteneurs)
-      - NEXT_PUBLIC_PV_PATH_API=http://backend:8081/api/v1/private
-      - NEXT_PUBLIC_PB_PATH_API=http://backend:8081/api/v1/public
+      # Override automatique pour Docker
+      - PV_PATH_API=http://backend:8081/api/v1/private
+      - PB_PATH_API=http://backend:8081/api/v1/public
     depends_on:
       - backend
     extra_hosts:

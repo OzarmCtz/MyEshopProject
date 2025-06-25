@@ -12,7 +12,7 @@ const ItemPage = async ({ params }: { params: { userId: number } }) => {
     const token = cookieStore.get('token')?.value;
     if (params.userId) {
         try {
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_PV_PATH_API}/users/${params.userId}?token=${token}`);
+            const response = await axios.get(`${process.env.PV_PATH_API}/users/${params.userId}?token=${token}`);
             if (response.status === 200) {
                 userData = response.data;
             }

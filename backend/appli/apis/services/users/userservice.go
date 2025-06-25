@@ -182,7 +182,8 @@ func (us *usersService) DeleteUser(currentUser adu.AppliUserLogin, userID int32)
 		}
 
 		if (userGroupName.GuName == global.SUPER_ADMIN_STATUS && userToDeleteGroupName.GuName == global.SUPER_ADMIN_STATUS) ||
-			(userGroupName.GuName == global.ADMIN_STATUS && userToDeleteGroupName.GuName == global.ADMIN_STATUS || userToDeleteGroupName.GuName == global.SUPER_ADMIN_STATUS) {
+			(userGroupName.GuName == global.ADMIN_STATUS && userToDeleteGroupName.GuName == global.ADMIN_STATUS ||
+				userToDeleteGroupName.GuName == global.SUPER_ADMIN_STATUS) {
 			return 0, errors.New("you are not authorized to delete this user")
 		}
 	}

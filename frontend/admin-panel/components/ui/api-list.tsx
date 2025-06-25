@@ -25,27 +25,27 @@ export const ApiList: React.FC<ApiListProps> = ({
             <ApiAlert
                 title="GET"
                 variant="public"
-                description={`${process.env.NEXT_PUBLIC_PB_PATH_API}/${entityName}`}
+                description={`${process.env.PB_PATH_API}/${entityName}`}
             />
             <ApiAlert
                 title="LIST"
                 variant="public"
-                description={`${process.env.NEXT_PUBLIC_PB_PATH_API}/${entityName}/{${entityIdName}}`}
+                description={`${process.env.PB_PATH_API}/${entityName}/{${entityIdName}}`}
             />
             <ApiAlert
                 title="POST"
                 variant="admin"
-                description={`${process.env.NEXT_PUBLIC_PB_PATH_API}/${entityName}`}
+                description={`${process.env.PB_PATH_API}/${entityName}`}
             />
             <ApiAlert
                 title="PUT"
                 variant="admin"
-                description={`${process.env.NEXT_PUBLIC_PB_PATH_API}/${entityName}/${entityIdName}`}
+                description={`${process.env.PB_PATH_API}/${entityName}/${entityIdName}`}
             />
             <ApiAlert
                 title="DELETE"
                 variant="admin"
-                description={`${process.env.NEXT_PUBLIC_PB_PATH_API}/${entityName}/${entityIdName}`}
+                description={`${process.env.PB_PATH_API}/${entityName}/${entityIdName}`}
             />
         </div>
     )

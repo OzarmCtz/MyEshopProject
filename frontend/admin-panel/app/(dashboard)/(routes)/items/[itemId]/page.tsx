@@ -14,7 +14,7 @@ const ItemPage = async ({ params }: { params: { itemId: number } }) => {
     const token = cookieStore.get('token')?.value;
     if (params.itemId) {
         try {
-            const response = await axios.get(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/${params.itemId}?token=${token}`);
+            const response = await axios.get(`${process.env.PV_PATH_API}/items/${params.itemId}?token=${token}`);
             if (response.status === 200) {
                 itemData = response.data;
             }
@@ -24,7 +24,7 @@ const ItemPage = async ({ params }: { params: { itemId: number } }) => {
 
         try {
 
-            const subCategoryLinked = await axios.get(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/sub/category/link/${params.itemId}?token=${token}`, {
+            const subCategoryLinked = await axios.get(`${process.env.PV_PATH_API}/items/sub/category/link/${params.itemId}?token=${token}`, {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const ItemPage = async ({ params }: { params: { itemId: number } }) => {
     }
 
     try {
-        const subCategory = await axios.get(`${process.env.NEXT_PUBLIC_PB_PATH_API}/items/sub/category`);
+        const subCategory = await axios.get(`${process.env.PB_PATH_API}/items/sub/category`);
         if (subCategory.status === 200) {
             subCategoryData = subCategory.data;
         }

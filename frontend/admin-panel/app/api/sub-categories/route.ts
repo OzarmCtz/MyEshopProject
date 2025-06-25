@@ -22,7 +22,7 @@ export async function POST(req: Request) {
         }
 
         try {
-            const response = await fetch(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/sub/category?token=${token}`, {
+            const response = await fetch(`${process.env.PV_PATH_API}/items/sub/category?token=${token}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -49,14 +49,18 @@ export async function POST(req: Request) {
 
 export async function DELETE(req: Request) {
     try {
-
         const cookieStore = cookies();
         const token = cookieStore.get('token')?.value;
 
-
-        const url = new URL(req.url);
+        // ✅ Utiliser une URL absolue pour éviter l'erreur en production/Docker
+        const url = new URL(req.url, `http://${req.headers.get('host')}`);
         const subCategoryId = url.searchParams.get('id');
 
+        console.log('[DEBUG] DELETE sub-category');
+        console.log('Sub-category ID:', subCategoryId);
+        console.log('Token:', token);
+
+        // ✅ Validation
         if (!subCategoryId) {
             return new NextResponse(JSON.stringify({ error: "Category ID is required" }), { status: 400 });
         }
@@ -65,18 +69,26 @@ export async function DELETE(req: Request) {
             return new NextResponse(JSON.stringify({ error: "You are not authenticated" }), { status: 401 });
         }
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/sub/category/${subCategoryId}?token=${token}`, {
-            method: 'DELETE',
-        });
+        try {
+            const response = await fetch(
+                `${process.env.PV_PATH_API}/items/sub/category/${subCategoryId}?token=${token}`,
+                { method: 'DELETE' }
+            );
 
-        const data = await response.json();
+            const data = await response.json();
 
-        if (response.status === 200) {
-            return NextResponse.json(data, { status: 200 });
-        } else {
-            return new NextResponse(JSON.stringify(data), { status: response.status });
+            if (response.status === 200) {
+                return NextResponse.json(data, { status: 200 });
+            } else {
+                return new NextResponse(JSON.stringify(data), { status: response.status });
+            }
+        } catch (fetchError) {
+            console.error('Fetch error during DELETE:', fetchError);
+            return new NextResponse(JSON.stringify({ error: "Failed to connect to backend service" }), { status: 502 });
         }
-    } catch (error) {
+
+    } catch (err) {
+        console.error('Internal server error:', err);
         return new NextResponse(JSON.stringify({ error: "Internal Server Error" }), { status: 500 });
     }
 }
@@ -103,7 +115,7 @@ export async function PUT(req: Request) {
             return new NextResponse(JSON.stringify({ error: "You are not authenticated" }), { status: 401 });
         }
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_PV_PATH_API}/items/sub/category/${subCategoryId}?token=${token}`, {
+        const response = await fetch(`${process.env.PV_PATH_API}/items/sub/category/${subCategoryId}?token=${token}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
